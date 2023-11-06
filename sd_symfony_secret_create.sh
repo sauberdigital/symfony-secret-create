@@ -4,7 +4,7 @@ vendor="sd"
 default_prefix="project"
 
 # Ask for project prefix and save in var. Use default if no input is given.
-read -p "Project Prefix (default: ${default_prefix}): " project_prefix
+read -p "Project Prefix [${default_prefix}]: " project_prefix
 project_prefix=${project_prefix:-$default_prefix}
 
 # Generate random string and save in var.
