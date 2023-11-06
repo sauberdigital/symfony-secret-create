@@ -1,7 +1,12 @@
 #!/bin/bash
 
+# set vendor prefix
 vendor="sd"
+
+# set default name for project
 default_prefix="project"
+
+# limit input to numbers, letters and max 25 chars
 valid_input_regex='^[0-9a-zA-Z]{1,25}$'
 
 
