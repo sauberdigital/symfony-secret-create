@@ -1,20 +1,27 @@
-read -p "Project Prefix [${default_prefix}]: " project_prefix
-
 #!/bin/bash
 
 vendor="sd"
 default_prefix="project"
 valid_input_regex='^[0-9a-zA-Z]{1,25}$'
 
-# Ask for project prefix and use default if no input is given.
-read -p "Project Prefix [${default_prefix}]: " project_prefix
-project_prefix=${project_prefix:-$default_prefix}
+# Function to ask for project prefix
+ask_for_prefix() {
+    read -p "Project Prefix [${default_prefix}]: " project_prefix
+    project_prefix=${project_prefix:-$default_prefix}
+}
 
-# Validate project prefix.
-if ! [[ $project_prefix =~ $valid_input_regex ]]; then
-    echo "Invalid input. Only letters and numbers are allowed, up to 25 characters."
-    exit 1
-fi
+# Loop until the user provides a valid input.
+while true; do
+    ask_for_prefix
+
+    # Validate project prefix.
+    if [[ $project_prefix =~ $valid_input_regex ]]; then
+        # If valid, break the loop.
+        break
+    else
+        echo "Invalid input. Only letters and numbers are allowed, up to 25 characters."
+    fi
+done
 
 # Generate random string and save in var.
 random_string=$(openssl rand -hex 16)
