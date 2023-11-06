@@ -4,9 +4,22 @@ vendor="sd"
 default_prefix="project"
 valid_input_regex='^[0-9a-zA-Z]{1,25}$'
 
+
+# Display the ASCII art box with the description.
+echo "┌──────────────────────────────────────────────────────┐"
+echo "│                                                      │"
+echo "│  Create an APP_SECRET for symfony applications.      │"
+echo "│                                                      │"
+echo "│  Output format: vendor + project + random string     │"
+echo "│                                                      │"
+echo "│  The vendor is set in the .sh file and can be        │"
+echo "│  changed there.                                      │"
+echo "│                                                      │"
+echo "└──────────────────────────────────────────────────────┘"
+
 # Function to ask for project prefix
 ask_for_prefix() {
-    read -p "Project Prefix [${default_prefix}]: " project_prefix
+    read -p "Project Name [${default_prefix}]: " project_prefix
     project_prefix=${project_prefix:-$default_prefix}
 }
 
